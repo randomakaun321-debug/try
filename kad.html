@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Kad Jemputan Kahwin</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #f9f5f2 0%, #fff 100%);
+      color: #333;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .skrin {
+      width: 100%;
+      max-width: 1080px;
+      height: 100%;
+      max-height: 1920px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 25px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .muka-depan, .isi-kad {
+      display: none;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: fade 0.8s ease;
+    }
+
+    .muka-depan.active, .isi-kad.active {
+      display: flex;
+    }
+
+    @keyframes fade {
+      from {opacity: 0; transform: scale(0.98);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    h1, h2 {
+      color: #b56576;
+      margin-bottom: 10px;
+    }
+
+    .tarikh {
+      background: #b56576;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin: 10px 0;
+    }
+
+    .butang {
+      background: #b56576;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    .butang:hover {
+      background: #6d6875;
+    }
+
+    footer {
+      font-size: 14px;
+      color: #777;
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="skrin">
+    <!-- Muka Depan -->
+    <div class="muka-depan active" id="mukaDepan">
+      <h1>💌 jemputan Majlis Perkahwinan 💌</h1>
+      <p>Tekan butang di bawah untuk membuka kad jemputan</p>
+      <button class="butang" onclick="bukaKad()">Buka Kad</button>
+    </div>
+
+    <!-- Isi Kad -->
+    <div class="isi-kad" id="isiKad">
+      <h2>Nurul Haikal<br>&<br>Ain Sofia</h2>
+      <p class="tarikh">Sabtu, 27 Jun 2026<br>8 Zulhijjah 1447H</p>
+      <p>📍 Dewan Seri Mutiara<br>Bukit Mertajam, Pulau Pinang</p>
+
+      <a class="butang" href="https://maps.app.goo.gl/" target="_blank">Lihat Lokasi</a>
+      <a class="butang" href="https://wa.me/60123456789" target="_blank">Hubungi Kami</a>
+
+      <footer>
+        “Ya Allah, satukanlah hati kedua mempelai ini dalam kebaikan.”
+      </footer>
+
+      <!-- Lagu -->
+      <!-- <audio id="lagu" src="lagu.mp3"></audio> -->
+    </div>
+  </div>
+
+  <script>
+    function bukaKad() {
+      document.getElementById('mukaDepan').classList.remove('active');
+      document.getElementById('isiKad').classList.add('active');
+
+      // mainkan lagu kalau ada
+      // document.getElementById('lagu').play();
+    }
+  </script>
+
+</body>
+</html>
